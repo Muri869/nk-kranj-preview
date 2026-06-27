@@ -278,10 +278,25 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    ANIMACIJE (scroll reveal)
    ===================================================================== */
 /* Skrijemo samo, če je JS aktiven (progresivno izboljšanje — brez JS vse ostane vidno). */
-.js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.js [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
 .js [data-reveal].is-visible { opacity: 1; transform: none; }
+
+/* Zamaknjeno (staggered) odkrivanje otrok mreže — kartice "priplavajo" ena za drugo. */
+.js [data-reveal] [data-stagger] > * { opacity: 0; transform: translateY(26px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.js [data-reveal].is-visible [data-stagger] > * { opacity: 1; transform: none; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(1) { transition-delay: 0.06s; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(2) { transition-delay: 0.14s; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(3) { transition-delay: 0.22s; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(4) { transition-delay: 0.30s; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(5) { transition-delay: 0.38s; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(6) { transition-delay: 0.46s; }
+.js [data-reveal].is-visible [data-stagger] > *:nth-child(n+7) { transition-delay: 0.54s; }
+
+/* Hero: vsebina se ob drsenju nežno dvigne in zbledi (parallax občutek). */
+.js .hero__content { will-change: transform, opacity; }
+
 @media (prefers-reduced-motion: reduce) {
-	[data-reveal] { opacity: 1; transform: none; transition: none; }
+	.js [data-reveal], .js [data-reveal] [data-stagger] > * { opacity: 1; transform: none; transition: none; }
 	.hero__media { animation: none; transform: none; }
 	html { scroll-behavior: auto; }
 }

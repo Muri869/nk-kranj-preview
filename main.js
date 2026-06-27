@@ -36,9 +36,31 @@
 		});
 	}
 
+	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	/* ---------- Hero parallax / fade ob drsenju ---------- */
+	var heroContent = document.querySelector('.hero__content');
+	var heroMedia = document.querySelector('.hero__media');
+	if (!reduce && heroContent) {
+		var ticking = false;
+		var parallax = function () {
+			var y = window.scrollY;
+			if (y < window.innerHeight) {
+				heroContent.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+				heroContent.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.7)));
+				if (heroMedia) {
+					heroMedia.style.transform = 'translateY(' + (y * 0.15) + 'px) scale(1.05)';
+				}
+			}
+			ticking = false;
+		};
+		window.addEventListener('scroll', function () {
+			if (!ticking) { window.requestAnimationFrame(parallax); ticking = true; }
+		}, { passive: true });
+	}
+
 	/* ---------- Scroll reveal ---------- */
 	var revealEls = document.querySelectorAll('[data-reveal]');
-	var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	if (reduce || !('IntersectionObserver' in window)) {
 		revealEls.forEach(function (el) { el.classList.add('is-visible'); });

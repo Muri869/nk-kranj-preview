@@ -11,12 +11,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
+	<style>
+		.preview-banner { background: #0b0c10; color: #fff; text-align: center; font-family: var(--font-body); font-size: 0.78rem; line-height: 1.5; letter-spacing: 0.04em; padding: 0.55rem 1rem; }
+		.preview-banner strong { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #e2001a; }
+	</style>
 </head>
 <body>
 
 <!-- Opozorilni trak: to je predogled -->
-<div style="background:#0b0c10;color:#fff;text-align:center;font:600 0.8rem/1.4 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;padding:.55rem 1rem">
-	Predogled prenove · vsebina je začasna (placeholder)
+<div class="preview-banner">
+	<strong>Predogled prenove</strong> · vsebina je začasna (placeholder)
 </div>
 
 <header class="site-header" data-header>
@@ -70,7 +74,7 @@
 
 	<!-- MATCH CENTER -->
 	<section class="match-strip" data-reveal>
-		<div class="container match-strip__inner">
+		<div class="container match-strip__inner" data-stagger>
 			<div class="match-card match-card--result">
 				<span class="match-card__label">Zadnji rezultat</span>
 				<div class="match-card__teams"><span>NK Kranj</span><strong class="match-card__score">2 : 1</strong><span>Triglav</span></div>
@@ -97,7 +101,7 @@
 				<h2 class="section__title">Novice</h2>
 				<a class="section__link" href="#">Vse novice →</a>
 			</header>
-			<div class="news-mosaic">
+			<div class="news-mosaic" data-stagger>
 				<article class="news-card news-card--feature">
 					<a class="news-card__link" href="#">
 						<div class="news-card__media" style="background-image:url('img/news1.jpg')"></div>
@@ -139,7 +143,7 @@
 				<span class="eyebrow eyebrow--light">Naše ekipe</span>
 				<h2 class="section__title">Selekcije</h2>
 			</header>
-			<div class="teams-grid">
+			<div class="teams-grid" data-stagger>
 				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/team1.jpg')"></div><span class="team-card__name">Članska ekipa</span></a>
 				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news1.jpg')"></div><span class="team-card__name">U17</span></a>
 				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news3.jpg')"></div><span class="team-card__name">U15</span></a>
@@ -169,7 +173,7 @@
 				<span class="eyebrow">Hvala za podporo</span>
 				<h2 class="section__title">Sponzorji in partnerji</h2>
 			</header>
-			<div class="sponsors-strip">
+			<div class="sponsors-strip" data-stagger>
 				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
 				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
 				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
