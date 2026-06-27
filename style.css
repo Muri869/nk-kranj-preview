@@ -323,3 +323,66 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 	.sponsors-strip { grid-template-columns: repeat(2, 1fr); }
 	.hero { min-height: 80vh; }
 }
+
+/* =====================================================================
+   PREMIUM ANIMACIJE (slog FC Bayern)
+   ===================================================================== */
+
+/* 1) Scroll progress — rdeča črta na vrhu */
+.scroll-progress {
+	position: fixed; top: 0; left: 0; z-index: 200; height: 3px; width: 100%;
+	background: var(--c-red); transform: scaleX(0); transform-origin: left;
+	transition: transform 0.1s linear; pointer-events: none;
+}
+
+/* 2) Hero naslov — "mask reveal" ob nalaganju */
+.hero__title { overflow: hidden; }
+.hero__title .reveal-line { display: inline-block; }
+.js .hero__title .reveal-line { transform: translateY(110%); }
+.js .hero.is-visible .hero__title .reveal-line {
+	transform: translateY(0);
+	transition: transform 0.9s var(--ease) 0.15s;
+}
+
+/* 3) Sheen na gumbih */
+.btn { position: relative; overflow: hidden; }
+.btn::before {
+	content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+	background: linear-gradient(110deg, transparent, rgba(255,255,255,0.35), transparent);
+	transform: skewX(-20deg); transition: left 0.6s var(--ease);
+}
+.btn:hover::before { left: 140%; }
+
+/* 4) Novice — rdeča črta pod naslovom zraste + puščica */
+.news-card__title { position: relative; display: inline; background-image: linear-gradient(var(--c-red), var(--c-red)); background-size: 0% 3px; background-position: 0 100%; background-repeat: no-repeat; padding-bottom: 4px; transition: background-size 0.4s var(--ease); }
+.news-card:hover .news-card__title { background-size: 100% 3px; }
+.news-card__body::after {
+	content: "→"; position: absolute; right: 1.4rem; bottom: 1.4rem;
+	font-family: var(--font-head); color: var(--c-red); font-size: 1.3rem;
+	opacity: 0; transform: translateX(-8px); transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.news-card:hover .news-card__body::after { opacity: 1; transform: translateX(0); }
+
+/* 5) Neskončni marquee sponzorjev */
+.sponsors-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.sponsors-track { display: flex; gap: 1.5rem; width: max-content; animation: marquee 32s linear infinite; }
+.sponsors-marquee:hover .sponsors-track { animation-play-state: paused; }
+.sponsors-track .sponsor-logo { flex: 0 0 auto; width: clamp(140px, 16vw, 200px); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* 6) Rdeča kljukica ob naslovih sekcij */
+.section__title { position: relative; }
+.section__head:not(.section__head--center) .section__title { padding-left: 1rem; }
+.section__head:not(.section__head--center) .section__title::before {
+	content: ""; position: absolute; left: 0; top: 0.1em; bottom: 0.1em; width: 5px;
+	background: var(--c-red); transform-origin: top; transition: transform 0.6s var(--ease) 0.1s;
+}
+/* Z JS se kljukica "nariše" ob odkritju sekcije; brez JS je preprosto vidna. */
+.js [data-reveal] .section__head:not(.section__head--center) .section__title::before { transform: scaleY(0); }
+.js [data-reveal].is-visible .section__head:not(.section__head--center) .section__title::before { transform: scaleY(1); }
+
+@media (prefers-reduced-motion: reduce) {
+	.js .hero__title .reveal-line { transform: none; }
+	.sponsors-track { animation: none; }
+	.btn::before { display: none; }
+}

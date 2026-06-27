@@ -59,6 +59,28 @@
 		}, { passive: true });
 	}
 
+	/* ---------- Scroll progress (rdeča črta na vrhu) ---------- */
+	var progress = document.querySelector('[data-progress]');
+	if (progress) {
+		var pTicking = false;
+		var updateProgress = function () {
+			var max = document.documentElement.scrollHeight - window.innerHeight;
+			var ratio = max > 0 ? window.scrollY / max : 0;
+			progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, ratio)) + ')';
+			pTicking = false;
+		};
+		updateProgress();
+		window.addEventListener('scroll', function () {
+			if (!pTicking) { window.requestAnimationFrame(updateProgress); pTicking = true; }
+		}, { passive: true });
+	}
+
+	/* ---------- Marquee sponzorjev: podvoji vsebino za neskončno zanko ---------- */
+	var marqueeTrack = document.querySelector('[data-marquee] .sponsors-track');
+	if (marqueeTrack && !reduce) {
+		marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+	}
+
 	/* ---------- Scroll reveal ---------- */
 	var revealEls = document.querySelectorAll('[data-reveal]');
 
