@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="sl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NK Kranj — predogled prenove</title>
+	<meta name="robots" content="noindex">
+	<meta name="description" content="Predogled prenovljene spletne strani NK Kranj v sodobnem slogu.">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Opozorilni trak: to je predogled -->
+<div style="background:#0b0c10;color:#fff;text-align:center;font:600 0.8rem/1.4 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;padding:.55rem 1rem">
+	Predogled prenove · vsebina je začasna (placeholder)
+</div>
+
+<header class="site-header" data-header>
+	<div class="site-header__inner">
+		<div class="site-header__brand">
+			<a class="site-logo site-logo--text" href="#"><span>NK</span> Kranj</a>
+		</div>
+		<nav class="site-nav" aria-label="Glavni meni">
+			<ul class="site-nav__list">
+				<li><a href="#">Novice</a></li>
+				<li><a href="#">Ekipe</a></li>
+				<li><a href="#">Tekme</a></li>
+				<li><a href="#">Nogometna šola</a></li>
+				<li><a href="#">Galerija</a></li>
+				<li><a href="#">O klubu</a></li>
+			</ul>
+		</nav>
+		<div class="site-header__cta"><a class="btn btn--primary" href="#vpis">Vpis v šolo</a></div>
+		<button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
+			<span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+			<span class="screen-reader-text">Meni</span>
+		</button>
+	</div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+	<ul class="mobile-nav__list">
+		<li><a href="#">Novice</a></li>
+		<li><a href="#">Ekipe</a></li>
+		<li><a href="#">Tekme</a></li>
+		<li><a href="#">Nogometna šola</a></li>
+		<li><a href="#">Galerija</a></li>
+		<li><a href="#">O klubu</a></li>
+	</ul>
+	<a class="btn btn--primary btn--block" href="#vpis">Vpis v šolo</a>
+</div>
+
+<main id="main">
+
+	<!-- HERO -->
+	<section class="hero" data-reveal>
+		<div class="hero__media" style="background-image:url('img/hero.jpg')"></div>
+		<div class="hero__overlay"></div>
+		<div class="container hero__content">
+			<span class="eyebrow eyebrow--light">Zadnje novice</span>
+			<h1 class="hero__title">Nova sezona, nove zgodbe NK Kranj</h1>
+			<p class="hero__excerpt">Spremljaj rezultate članske ekipe in mladinskih selekcij, novice iz nogometne šole in utrinke s stadiona v Kranju.</p>
+			<a class="btn btn--primary btn--lg" href="#">Preberi več</a>
+		</div>
+	</section>
+
+	<!-- MATCH CENTER -->
+	<section class="match-strip" data-reveal>
+		<div class="container match-strip__inner">
+			<div class="match-card match-card--result">
+				<span class="match-card__label">Zadnji rezultat</span>
+				<div class="match-card__teams"><span>NK Kranj</span><strong class="match-card__score">2 : 1</strong><span>Triglav</span></div>
+				<span class="match-card__meta">Članska liga · 3. krog</span>
+			</div>
+			<div class="match-card match-card--next">
+				<span class="match-card__label">Naslednja tekma</span>
+				<div class="match-card__teams"><span>NK Kranj</span><strong class="match-card__vs">VS</strong><span>Sava</span></div>
+				<span class="match-card__meta">Nedelja, 17:00 · Stadion Kranj</span>
+			</div>
+			<a class="match-card match-card--cta" href="#">
+				<span class="match-card__label">Vse tekme</span>
+				<span class="match-card__arrow">→</span>
+				<span class="match-card__meta">Razpored in rezultati po selekcijah</span>
+			</a>
+		</div>
+	</section>
+
+	<!-- NOVICE -->
+	<section class="section section--news" data-reveal>
+		<div class="container">
+			<header class="section__head">
+				<span class="eyebrow">Iz kluba</span>
+				<h2 class="section__title">Novice</h2>
+				<a class="section__link" href="#">Vse novice →</a>
+			</header>
+			<div class="news-mosaic">
+				<article class="news-card news-card--feature">
+					<a class="news-card__link" href="#">
+						<div class="news-card__media" style="background-image:url('img/news1.jpg')"></div>
+						<div class="news-card__body"><span class="news-card__date">12. jun 2026</span><h3 class="news-card__title">Članska ekipa z zmago odprla novo prvenstvo</h3></div>
+					</a>
+				</article>
+				<article class="news-card">
+					<a class="news-card__link" href="#">
+						<div class="news-card__media" style="background-image:url('img/news2.jpg')"></div>
+						<div class="news-card__body"><span class="news-card__date">9. jun 2026</span><h3 class="news-card__title">Mladi upi navdušili na turnirju</h3></div>
+					</a>
+				</article>
+				<article class="news-card">
+					<a class="news-card__link" href="#">
+						<div class="news-card__media" style="background-image:url('img/news3.jpg')"></div>
+						<div class="news-card__body"><span class="news-card__date">5. jun 2026</span><h3 class="news-card__title">Nogometna šola vpisuje nove člane</h3></div>
+					</a>
+				</article>
+				<article class="news-card">
+					<a class="news-card__link" href="#">
+						<div class="news-card__media" style="background-image:url('img/news4.jpg')"></div>
+						<div class="news-card__body"><span class="news-card__date">1. jun 2026</span><h3 class="news-card__title">Uspešen zaključek sezone za U15</h3></div>
+					</a>
+				</article>
+				<article class="news-card">
+					<a class="news-card__link" href="#">
+						<div class="news-card__media" style="background-image:url('img/news5.jpg')"></div>
+						<div class="news-card__body"><span class="news-card__date">28. maj 2026</span><h3 class="news-card__title">Pogovor s trenerjem članske ekipe</h3></div>
+					</a>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<!-- SELEKCIJE -->
+	<section class="section section--teams section--dark" data-reveal>
+		<div class="container">
+			<header class="section__head section__head--light">
+				<span class="eyebrow eyebrow--light">Naše ekipe</span>
+				<h2 class="section__title">Selekcije</h2>
+			</header>
+			<div class="teams-grid">
+				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/team1.jpg')"></div><span class="team-card__name">Članska ekipa</span></a>
+				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news1.jpg')"></div><span class="team-card__name">U17</span></a>
+				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news3.jpg')"></div><span class="team-card__name">U15</span></a>
+				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news5.jpg')"></div><span class="team-card__name">U13</span></a>
+				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news2.jpg')"></div><span class="team-card__name">Nogometna šola</span></a>
+				<a class="team-card" href="#"><div class="team-card__media" style="background-image:url('img/news4.jpg')"></div><span class="team-card__name">Cici gol</span></a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA ŠOLA -->
+	<section class="cta-band" id="vpis" data-reveal>
+		<div class="cta-band__media" style="background-image:url('img/news3.jpg')"></div>
+		<div class="cta-band__overlay"></div>
+		<div class="container cta-band__content">
+			<span class="eyebrow eyebrow--light">Za najmlajše</span>
+			<h2 class="cta-band__title">Pridruži se nogometni šoli NK Kranj</h2>
+			<p class="cta-band__text">Otroška nogometna šola in Cici gol za predšolske otroke. Vpisi so odprti vse leto.</p>
+			<a class="btn btn--primary btn--lg" href="#">Prijavi otroka</a>
+		</div>
+	</section>
+
+	<!-- SPONZORJI -->
+	<section class="section section--sponsors" data-reveal>
+		<div class="container">
+			<header class="section__head section__head--center">
+				<span class="eyebrow">Hvala za podporo</span>
+				<h2 class="section__title">Sponzorji in partnerji</h2>
+			</header>
+			<div class="sponsors-strip">
+				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
+				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
+				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
+				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
+				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
+				<div class="sponsor-logo sponsor-logo--placeholder">LOGO</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<footer class="site-footer">
+	<div class="container site-footer__top">
+		<div class="site-footer__brand">
+			<a class="site-logo site-logo--text" href="#"><span>NK</span> Kranj</a>
+			<p class="site-footer__tagline">Nogometni klub Kranj — tradicija in mladi.</p>
+			<div class="site-footer__social"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="YouTube">YT</a></div>
+		</div>
+		<nav class="site-footer__nav" aria-label="Meni v nogi">
+			<h3 class="footer-widget__title">Razdelki</h3>
+			<ul class="site-footer__list">
+				<li><a href="#">Novice</a></li><li><a href="#">Ekipe</a></li><li><a href="#">Tekme</a></li>
+				<li><a href="#">Nogometna šola</a></li><li><a href="#">Galerija</a></li><li><a href="#">O klubu</a></li>
+			</ul>
+		</nav>
+		<div class="site-footer__contact">
+			<h3 class="footer-widget__title">Kontakt</h3>
+			<address>NK Kranj<br>Stadion Stanka Mlakarja, Kranj<br><a href="mailto:info@nkkranj.si">info@nkkranj.si</a></address>
+		</div>
+	</div>
+	<div class="site-footer__bottom"><div class="container"><p>&copy; 2026 NK Kranj. Vse pravice pridržane. · Predogled prenove</p></div></div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
