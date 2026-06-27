@@ -224,6 +224,11 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 }
 .sponsor-logo:hover { filter: grayscale(0); opacity: 1; transform: translateY(-3px); }
 .sponsor-logo img { max-height: 56px; width: auto; object-fit: contain; }
+/* Svetli logotipi (npr. Carpolab) — temna ploščica, polna barva */
+.sponsor-logo--dark { background: var(--c-ink-soft); border: 1px solid rgba(255,255,255,0.08); filter: none; opacity: 1; }
+.sponsor-logo--dark:hover { background: #1c1f29; }
+.sponsor-logo--dark img { max-height: 60px; }
+a.sponsor-logo { cursor: pointer; }
 
 /* =====================================================================
    SINGLE / PAGE
