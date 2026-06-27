@@ -34,14 +34,14 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
 	margin: 0;
 	font-family: var(--font-body);
-	color: var(--c-ink);
-	background: var(--c-white);
+	color: #e7e8ec;
+	background: var(--c-ink);
 	line-height: 1.6;
 	overflow-x: hidden;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.04; margin: 0 0 0.4em; text-transform: uppercase; letter-spacing: 0.01em; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1.04; margin: 0 0 0.4em; text-transform: uppercase; letter-spacing: 0.01em; color: #fff; }
 
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 
@@ -165,7 +165,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
    SEKCIJE (splošno)
    ===================================================================== */
 .section { padding-block: clamp(3.5rem, 7vw, 6.5rem); }
-.section--dark { background: var(--c-ink); color: var(--c-white); }
+.section--dark, .section--gray { background: var(--c-ink-soft); color: var(--c-white); }
+.section--alt { background: var(--c-ink-soft); }
 .section__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem; margin-bottom: 2.5rem; }
 .section__head--center { flex-direction: column; align-items: center; text-align: center; }
 .section__title { font-size: clamp(2rem, 4vw, 3.2rem); margin: 0; }
@@ -235,7 +236,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .entry-date { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-red); }
 .single__body, .page__body { max-width: 800px; padding-block: clamp(2.5rem, 5vw, 4rem); }
 .page__head:not(.page__head--over) { padding-top: calc(var(--header-h) + 2.5rem); }
-.page__head:not(.page__head--over) .page__title { color: var(--c-ink); }
+.page__head:not(.page__head--over) .page__title { color: #fff; }
 .entry-content { font-size: 1.08rem; }
 .entry-content p { margin: 0 0 1.4rem; }
 .entry-content h2, .entry-content h3 { margin-top: 2rem; }
@@ -249,9 +250,10 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 .pagination .nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .pagination a, .pagination .current {
 	display: inline-flex; min-width: 44px; height: 44px; align-items: center; justify-content: center;
-	font-family: var(--font-head); border-radius: var(--radius); background: var(--c-gray-100); padding-inline: 0.8rem;
+	font-family: var(--font-head); border-radius: var(--radius); background: var(--c-ink-soft); color: #fff; padding-inline: 0.8rem;
+	border: 1px solid rgba(255,255,255,0.1);
 }
-.pagination .current { background: var(--c-red); color: var(--c-white); }
+.pagination .current { background: var(--c-red); color: var(--c-white); border-color: var(--c-red); }
 
 /* =====================================================================
    NOGA
@@ -385,4 +387,73 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 700; line-height: 1
 	.js .hero__title .reveal-line { transform: none; }
 	.sponsors-track { animation: none; }
 	.btn::before { display: none; }
+}
+
+/* =====================================================================
+   TEMNA TEMA — popravki za vsebino na črni podlagi
+   ===================================================================== */
+.entry-content { color: #d6d8de; }
+.entry-content a { color: var(--c-red); text-decoration: underline; text-underline-offset: 3px; }
+.entry-content a:hover { color: #fff; }
+.entry-content strong { color: #fff; }
+.entry-content blockquote { border-left: 4px solid var(--c-red); padding-left: 1.2rem; margin-inline: 0; color: #fff; }
+.muted { color: var(--c-gray-500); }
+
+/* Uvodni pas notranjih strani (arhivi) */
+.page-lead { padding-top: calc(var(--header-h) + clamp(2.5rem, 6vw, 4.5rem)); padding-bottom: clamp(1.5rem, 4vw, 3rem); background: linear-gradient(180deg, #14151b, var(--c-ink)); }
+.page-lead__title { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 0 0 0.4rem; }
+.page-lead__text { color: var(--c-gray-500); max-width: 60ch; }
+
+/* Roster igralcev */
+.roster { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+.player-card { background: var(--c-ink-soft); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.3s var(--ease); }
+.player-card:hover { transform: translateY(-4px); }
+.player-card__media { position: relative; aspect-ratio: 3 / 4; background-size: cover; background-position: center top; }
+.player-card__num { position: absolute; right: 0.6rem; bottom: 0.4rem; font-family: var(--font-head); font-size: 2.4rem; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.6); line-height: 1; }
+.player-card__info { padding: 0.8rem 0.9rem; }
+.player-card__name { display: block; font-family: var(--font-head); text-transform: uppercase; color: #fff; font-size: 1.05rem; }
+.player-card__pos { font-size: 0.8rem; color: var(--c-red); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Tekme / semaforji */
+.fixtures { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.fixture { display: flex; flex-direction: column; gap: 0.7rem; padding: 1.4rem 1.3rem; background: var(--c-ink-soft); border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.07); border-left: 4px solid var(--c-red); transition: transform 0.25s var(--ease), background 0.25s var(--ease); }
+.fixture:hover { transform: translateY(-3px); background: #1c1f29; }
+.fixture__comp { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; color: var(--c-red); }
+.fixture__teams { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; font-family: var(--font-head); text-transform: uppercase; color: #fff; }
+.fixture__team { flex: 1; }
+.fixture__teams .fixture__team:last-child { text-align: right; }
+.fixture__score { font-size: 1.5rem; color: #fff; }
+.fixture__when { font-size: 0.85rem; color: var(--c-gray-500); }
+
+/* Galerija — slike iz vsebine v mrežo + preprost lightbox */
+.gallery-content { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.gallery-content img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); margin: 0; cursor: zoom-in; transition: transform 0.4s var(--ease), filter 0.3s var(--ease); }
+.gallery-content img:hover { transform: scale(1.03); filter: brightness(1.08); }
+.gallery-content p { margin: 0; display: contents; }
+.lightbox { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,0.92); display: flex; align-items: center; justify-content: center; padding: 4vw; opacity: 0; pointer-events: none; transition: opacity 0.3s var(--ease); }
+.lightbox.is-open { opacity: 1; pointer-events: auto; }
+.lightbox img { max-width: 100%; max-height: 90vh; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.lightbox__close { position: absolute; top: 1.2rem; right: 1.5rem; font-size: 2.4rem; color: #fff; background: none; border: 0; cursor: pointer; line-height: 1; }
+
+/* Semafor posamezne tekme */
+.match-hero { padding-top: calc(var(--header-h) + clamp(3rem, 7vw, 5rem)); padding-bottom: clamp(2.5rem, 5vw, 4rem); background: linear-gradient(135deg, var(--c-red-dark), var(--c-ink) 75%); text-align: center; }
+.match-hero__board { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 5vw, 3rem); margin-top: 1rem; }
+.match-hero__team { font-family: var(--font-head); text-transform: uppercase; font-size: clamp(1.4rem, 4vw, 2.6rem); color: #fff; flex: 1; }
+.match-hero__score { font-family: var(--font-head); font-size: clamp(2.5rem, 7vw, 4.5rem); color: #fff; }
+.match-hero__when { margin-top: 1rem; color: rgba(255,255,255,0.8); }
+
+/* 404 */
+.error-404 { min-height: 70vh; display: flex; align-items: center; text-align: center; padding-top: var(--header-h); }
+.error-404 .container { width: 100%; }
+.error-404__code { font-family: var(--font-head); font-size: clamp(5rem, 18vw, 12rem); color: var(--c-red); line-height: 1; display: block; }
+.error-404__title { font-size: clamp(1.6rem, 4vw, 2.6rem); }
+.error-404__text { color: var(--c-gray-500); max-width: 46ch; margin: 0 auto 2rem; }
+
+@media (max-width: 1024px) {
+	.roster { grid-template-columns: repeat(3, 1fr); }
+	.fixtures { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+	.roster { grid-template-columns: repeat(2, 1fr); }
+	.fixtures { grid-template-columns: 1fr; }
 }

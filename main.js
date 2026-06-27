@@ -81,6 +81,30 @@
 		marqueeTrack.innerHTML += marqueeTrack.innerHTML;
 	}
 
+	/* ---------- Lightbox za galerije ---------- */
+	var galleries = document.querySelectorAll('[data-lightbox]');
+	if (galleries.length) {
+		var lb = document.createElement('div');
+		lb.className = 'lightbox';
+		lb.innerHTML = '<button class="lightbox__close" aria-label="Zapri">&times;</button>';
+		var lbImg = document.createElement('img'); // src se nastavi ob kliku
+		lbImg.alt = '';
+		lb.appendChild(lbImg);
+		document.body.appendChild(lb);
+		var close = function () { lb.classList.remove('is-open'); document.body.style.overflow = ''; };
+		lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lightbox__close')) close(); });
+		document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+		galleries.forEach(function (g) {
+			g.addEventListener('click', function (e) {
+				var img = e.target.closest('img');
+				if (!img) return;
+				lbImg.src = img.currentSrc || img.src;
+				lb.classList.add('is-open');
+				document.body.style.overflow = 'hidden';
+			});
+		});
+	}
+
 	/* ---------- Scroll reveal ---------- */
 	var revealEls = document.querySelectorAll('[data-reveal]');
 
