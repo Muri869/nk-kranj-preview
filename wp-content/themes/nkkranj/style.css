@@ -1,0 +1,16 @@
+/*
+Theme Name: NK Kranj
+Theme URI: https://www.nkkranj.si/
+Author: NK Kranj / Aljoša Vodan
+Description: Sodobna tema po meri za NK Kranj (NK Zarica Kranj) v vizualnem slogu vrhunskih klubskih strani. Rdeče-bela paleta, krepka tipografija, full-bleed slike.
+Version: 0.1.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Text Domain: nkkranj
+Tags: sport, football, club, custom
+*/
+
+/*
+  Ta datoteka je obvezna glava teme. Glavni slogi so v assets/css/main.css
+  (naloženo prek wp_enqueue_style), da ostane jasno ločeno.
+*/
